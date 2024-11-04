@@ -3,11 +3,11 @@ package data;
 import java.util.HashMap;
 
 class Food {
-    private String name;
-    private float weight;
-    private float calories;
-    HashMap<String, Float> microNuitrients;
-    HashMap<String, Float> macroNuitrients;
+    private final String name;
+    private final float weight;
+    private final float calories;
+    private final HashMap<String, Float> microNuitrients;
+    private final HashMap<String, Float> macroNuitrients;
 
     public Food(String name, float weight, float calories) {
         this.name = name;
