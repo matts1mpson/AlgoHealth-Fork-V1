@@ -3,7 +3,8 @@ CSC207 Final Project
 Group Members:
 Matthew Simpson (Github username: matts1mpson),
 Haoming (Tony) Qi (Github username: TonyQi25), 
-Erin Chen (Github username: chenerin29),
+ Erin Chen (Github username: chenerin29),
+Daniel Xie (Github username: DanielXie1795)
 
 Team User Story: Food logging
 
@@ -31,3 +32,4 @@ User logs food:
 User logs out:
 
     User logs out and the system shows that the user successfully logged out.
+
