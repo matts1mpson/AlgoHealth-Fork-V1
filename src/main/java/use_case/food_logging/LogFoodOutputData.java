@@ -1,4 +1,4 @@
-package log_food;
+package use_case.food_logging;
 
 import java.util.HashMap;
 

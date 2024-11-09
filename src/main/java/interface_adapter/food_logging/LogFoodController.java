@@ -1,4 +1,4 @@
-package log_food;
+package interface_adapter.food_logging;
 
 import data.Food;
 
