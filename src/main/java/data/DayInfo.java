@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
 
-class DayInfo {
+public class DayInfo {
     private final LocalDateTime date;
     private float totalCalories;
     private List<Food> foodLog;
@@ -34,4 +34,6 @@ class DayInfo {
     public void setTotalCalories(float newTotalCalories) {
         this.totalCalories = newTotalCalories;
     }
+
+
 }
