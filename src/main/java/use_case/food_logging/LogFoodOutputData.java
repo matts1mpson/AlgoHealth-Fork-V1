@@ -4,11 +4,11 @@ import java.util.HashMap;
 
 public class LogFoodOutputData {
     private final String foodName;
-    private final HashMap<String, Object> calories;
+    private final HashMap<String, HashMap<String, Object>> macronutrients;
 
     //output food name and calories calculated based on amount consumed.
-    public LogFoodOutputData(String foodName, HashMap<String, Object> calories) {
+    public LogFoodOutputData(String foodName, HashMap<String, HashMap<String, Object>> Macronutrient) {
         this.foodName = foodName;
-        this.calories = calories;
+        this.macronutrients = Macronutrient;
     }
 }

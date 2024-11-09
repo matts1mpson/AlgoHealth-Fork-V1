@@ -2,13 +2,11 @@ package use_case.food_logging;
 import data.Food;
 
 public class LogFoodInputData {
-    private final Food food;
+    private final String food;
 
-    public LogFoodInputData(Food food) {
+    public LogFoodInputData(String food) {
         this.food = food;
     }
 
-    Food getFood() {
-        return food;
-    }
+    String getFood() {return food;}
 }
