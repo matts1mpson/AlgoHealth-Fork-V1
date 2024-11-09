@@ -1,8 +1,6 @@
-package log_food;
+package use_case.food_logging;
 
 public interface LogFoodOutputBoundary {
     void prepareSuccessView(LogFoodOutputBoundary outputData);
-
-    void prepareFailView(String errorMessage);
 
 }

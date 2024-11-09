@@ -1,4 +1,4 @@
-package log_food;
+package use_case.food_logging;
 
 public class LogFoodInteractor implements LogFoodInputBoundary {
     private final LogFoodDataAccessInterface logFoodDataAccessObject;
