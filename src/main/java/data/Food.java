@@ -69,4 +69,8 @@ public class Food {
     public void setWeight(float weight) {
         this.weight = weight;
     }
+
+    public String getStandardUnit() {
+        return standardUnit;
+    }
 }
