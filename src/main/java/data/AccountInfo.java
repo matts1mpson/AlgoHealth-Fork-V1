@@ -11,7 +11,7 @@ class AccountInfo {
     private String username;
     private String password;
     private List<DayInfo> days;
-    private List<String> dietaryRestrictions;
+    private List<Food> dietaryRestrictions;
 
     public AccountInfo(int age, float height, float weight, String diet, String goal,
                        String username, String password, List<Food> dietaryRestrictions) {
@@ -84,7 +84,7 @@ class AccountInfo {
         this.days = days;
     }
 
-    public void setDietaryRestrictions(List<String> dietaryRestrictions) {
+    public void setDietaryRestrictions(List<Food> dietaryRestrictions) {
         this.dietaryRestrictions = dietaryRestrictions;
     }
 
