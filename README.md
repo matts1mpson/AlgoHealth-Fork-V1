@@ -33,3 +33,5 @@ User logs out:
 
     User logs out and the system shows that the user successfully logged out.
 
+Link to view sketches:https://www.dropbox.com/scl/fi/yfsiq2puil3mbfrjzsddm/AlgoHealth-App-View-Sketches.pdf?rlkey=bt4sihznpxc7ekzqoys62ng9f&st=d0rvugd5&dl=0
+Link to Week 1 Demo Video: https://www.dropbox.com/scl/fi/tcqap2a9rjsby9owifh2d/AlgoHealth-Project-Week-1-Demo.mov?rlkey=t8upq65jph8litm7kcjk72jxs&st=mauwud3b&dl=0
