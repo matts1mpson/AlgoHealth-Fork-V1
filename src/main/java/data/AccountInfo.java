@@ -1,9 +1,10 @@
 package data;
 
+import java.time.LocalDate;
 import java.util.List;
 
-class AccountInfo {
-    private int age;  // change this to date of birth
+public class AccountInfo {
+    private final LocalDate dateOfBirth;  // change this to date of birth
     private final float height;
     private float weight;
     private String diet;
@@ -13,19 +14,20 @@ class AccountInfo {
     private List<DayInfo> days;
     private List<Food> dietaryRestrictions;
 
-    public AccountInfo(int age, float height, float weight, String diet, String goal,
+    public AccountInfo(LocalDate dateOfBirth, float height, float weight, String diet, String goal,
                        String username, String password, List<Food> dietaryRestrictions) {
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
         this.height = height;
         this.weight = weight;
         this.diet = diet;
         this.goal = goal;
         this.username = username;
         this.password = password;
+        this.dietaryRestrictions = dietaryRestrictions;
     }
 
-    public int getAge() {
-        return age;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public float getHeight() {
@@ -86,9 +88,5 @@ class AccountInfo {
 
     public void setDietaryRestrictions(List<Food> dietaryRestrictions) {
         this.dietaryRestrictions = dietaryRestrictions;
-    }
-
-    public void increaseAge() {  // change this along with the DOB
-        this.age++;
     }
 }

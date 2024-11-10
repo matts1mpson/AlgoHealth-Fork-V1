@@ -1,22 +1,21 @@
 package data;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.time.LocalDateTime;
 
 public class DayInfo {
-    private final Date date;
+    private final LocalDate date;
     private float totalCalories;
     private List<Food> foodLog;
 
-    public DayInfo(Date date) {
+    public DayInfo(LocalDate date) {
         this.date = date;
         totalCalories = 0;
         foodLog = new ArrayList<>();
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
 
