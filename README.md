@@ -1,35 +1,46 @@
 # AlgoHealth
-CSC207 Final Project
-Group Members:
+**CSC207 Final Project
+Group Members:**
 Matthew Simpson (Github username: matts1mpson),
 Haoming (Tony) Qi (Github username: TonyQi25), 
- Erin Chen (Github username: chenerin29),
+Erin Chen (Github username: chenerin29),
 Daniel Xie (Github username: DanielXie1795)
 
-Team User Story: Food logging
+## **Use Cases:**
 
-Josiah wishes to track the food he consumed in a day. He logs in to the nutrition tracker program and selects a day 
-to input the food he consumed that day. The program calculates the amount of macronutrients, micronutrients, and 
-calories he consumed that day. Basic shortfalls of the inputted food will be shown. For example, a calorie or 
-micronutrient deficiency. A button is next to the shortfalls display that can take him to a page with food 
-recommendations that bring his nutrient levels to what is expected. His input will be stored and available for him 
-to view next time he logs in the program.
-
-Use Cases:
-
-User logs in:
+**User logs in:**
 
     User enters username and password. The system shows the user is logged in if the username exists and the password
     matches the username. If the username does not exist or the password does not match the username, the system shows
     the log in failed.
 
-User logs food:
+**User logs food:**
 
     User enters the type and amount of food they consumed. The system shows the nutrients and calories the user
     consumed and stores the information if the entered food is valid. If the food entered is invalid, the system 
     alerts the user that no such food exists.
 
-User logs out:
+**User logs out:**
 
     User logs out and the system shows that the user successfully logged out.
 
+**Get General Recommendations:**
+
+User presses on the “get recommendation” button to trigger a window with recommendations made based on the user’s 
+previous input of food consumption.
+
+**Looking back at history**:
+
+The user selects a date to view their record of food intake on that day. If the date is in the past, the system shows
+the user’s record of food intake on that day. If the date is in the future, the system alerts the user that there is
+no record.
+
+**Recipe creation:**
+
+The user inputs a list of ingredients for their own recipe. The system calculates the total macronutrients if the food
+inputted are valid. If the food entered is invalid, the system alerts the user that no such food exists.
+
+**Edit food log:**
+
+The user selects a date to revise the recorded daily consumption. The system records the new food intake the user 
+inputs if the food is valid. If the food is not valid, the system alerts the user.
