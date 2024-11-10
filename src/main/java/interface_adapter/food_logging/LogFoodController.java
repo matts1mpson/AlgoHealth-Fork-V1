@@ -1,6 +1,7 @@
 package interface_adapter.food_logging;
-
 import data.Food;
+import use_case.food_logging.LogFoodInputBoundary;
+import use_case.food_logging.LogFoodInputData;
 
 public class LogFoodController {
     private final LogFoodInputBoundary logFoodUseCaseInteractor;
