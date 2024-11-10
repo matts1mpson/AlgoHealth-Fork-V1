@@ -4,9 +4,12 @@ package view;
 import api.callUsdaApi;
 import data.DayInfo;
 import data.Food;
+import interface_adapter.get_recommendations.getRecsController;
 
 import javax.swing.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDateTime;
 import java.util.ArrayList;
@@ -18,7 +21,7 @@ import static java.awt.Component.LEFT_ALIGNMENT;
 
 public class mainView {
 
-    // for all instance attributes the item at 0 is the amount, and the item at 1 is the unit.
+    // for all instance attributes the item at 0 is the amount as a string, and the item at 1 is the unit.
     private ArrayList<Object> calories;
     private ArrayList<Object> protein;
     private ArrayList<Object> carbs;
@@ -62,6 +65,15 @@ public class mainView {
         JLabel totalCarbs = new JLabel("Total carbohydrates: " + carbs.get(0) + protein.get(1));
         JLabel totalFat = new JLabel("Total fat: " + fat.get(0) + fat.get(1));
         JButton getDVrecs = new JButton("Get Recommendations");
+
+        getDVrecs.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        getRecsController.execute(calories, protein, carbs, fat);
+                    }
+                }
+        );
 
         // Input and submit panel.
         JPanel panel1 = new JPanel();
@@ -150,3 +162,5 @@ public class mainView {
     }
 
 }
+
+// Citation: lab-5 code https://github.com/CSC207-2024F-UofT/lab-5
