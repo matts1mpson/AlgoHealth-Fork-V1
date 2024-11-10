@@ -30,13 +30,13 @@ public class recommendationsView {
         JPanel panel1 = new JPanel();
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
         JLabel dv1 = new JLabel(calories.get(0) + calories.get(1) + " is " +
-                percent_cals + "% of the recommended Daily Value.");
+                percent_cals + "% of the recommended Daily Value of calories.");
         JLabel dv2 = new JLabel(protein.get(0) + protein.get(1) + " is "
-                + percent_prot + "% of the recommended Daily Value.");
+                + percent_prot + "% of the recommended Daily Value of protein.");
         JLabel dv3 = new JLabel(carbs.get(0) + carbs.get(1) + " is "
-                + percent_carbs + "% of the recommended Daily Value.");
+                + percent_carbs + "% of the recommended Daily Value of carbohydrates.");
         JLabel dv4 = new JLabel(fat.get(0) + fat.get(1) + " is "
-                + percent_fat + "% of the recommended Daily Value.");
+                + percent_fat + "% of the recommended Daily Value of fat.");
         panel1.add(dv1);
         panel1.add(dv2);
         panel1.add(dv3);
