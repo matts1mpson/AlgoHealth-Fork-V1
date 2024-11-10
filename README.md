@@ -44,3 +44,6 @@ inputted are valid. If the food entered is invalid, the system alerts the user t
 
 The user selects a date to revise the recorded daily consumption. The system records the new food intake the user 
 inputs if the food is valid. If the food is not valid, the system alerts the user.
+
+Link to view sketches:https://www.dropbox.com/scl/fi/yfsiq2puil3mbfrjzsddm/AlgoHealth-App-View-Sketches.pdf?rlkey=bt4sihznpxc7ekzqoys62ng9f&st=d0rvugd5&dl=0
+Link to Week 1 Demo Video: https://www.dropbox.com/scl/fi/tcqap2a9rjsby9owifh2d/AlgoHealth-Project-Week-1-Demo.mov?rlkey=t8upq65jph8litm7kcjk72jxs&st=mauwud3b&dl=0

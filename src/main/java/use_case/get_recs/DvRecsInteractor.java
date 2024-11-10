@@ -27,10 +27,10 @@ public class DvRecsInteractor {
         // get the percent pass to the presenter to update the recommendations view.
         double percent_cals = (calories / DVcals) * 100;
         double percent_prot = (protein / DVprot) * 100;
-        double percent_carbs = (protein / DVcarbs) * 100;
-        double percent_fat = (protein / DVfat) * 100;
+        double percent_carbs = (carbs / DVcarbs) * 100;
+        double percent_fat = (fat / DVfat) * 100;
 
-        recPresenter.execute(calories, protein, carbs, fat, percent_cals, percent_carbs, percent_prot, percent_fat);
+        recPresenter.execute(calories, protein, carbs, fat, percent_carbs, percent_cals, percent_prot, percent_fat);
 
     }
 }

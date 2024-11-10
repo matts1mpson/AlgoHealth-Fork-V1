@@ -65,7 +65,7 @@ public class mainView {
         JLabel totalProtein = new JLabel("Total protein: " + protein.get(0) + protein.get(1));
         JLabel totalCarbs = new JLabel("Total carbohydrates: " + carbs.get(0) + protein.get(1));
         JLabel totalFat = new JLabel("Total fat: " + fat.get(0) + fat.get(1));
-        JButton getDVrecs = new JButton("Daily Value Recommendations");
+        JButton getDVrecs = new JButton("Daily Value Assessment");
 
         getDVrecs.addActionListener(
                 new ActionListener() {
