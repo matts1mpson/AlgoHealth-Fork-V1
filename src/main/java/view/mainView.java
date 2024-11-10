@@ -10,6 +10,7 @@ import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDateTime;
 import java.util.ArrayList;
@@ -146,7 +147,7 @@ public class mainView {
     public static void main(String[] args) {
         // Informal test for the view.
         mainView mV = new mainView();
-        DayInfo mockDay = new DayInfo(new Date(2024, 11, 9));
+        DayInfo mockDay = new DayInfo(LocalDate.now());
         ArrayList<Food> foodList = new ArrayList<>();
         String apiKey = "DEMO_KEY";
         callUsdaApi usdaObj = new callUsdaApi(apiKey);
