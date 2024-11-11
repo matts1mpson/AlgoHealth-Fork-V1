@@ -48,6 +48,7 @@ inputs if the food is valid. If the food is not valid, the system alerts the use
 ## ** Links for Sketches and Video: **
 Link to view sketches:https://www.dropbox.com/scl/fi/yfsiq2puil3mbfrjzsddm/AlgoHealth-App-View-Sketches.pdf?rlkey=bt4sihznpxc7ekzqoys62ng9f&st=d0rvugd5&dl=0
 Link to two demo videos: https://www.dropbox.com/scl/fo/9cvvaf0iet1wnstenxwlr/AF8dcD3_V9sccfPR6rwzTpM?rlkey=7qxdvztpsy3pzw4r7cvh56hry&st=tcbgcdhe&dl=0
+Link to login demo video: https://www.dropbox.com/scl/fi/rvain97y9o0096qgan28n/10.11.2024_22.34.44_REC.mp4?rlkey=9wa8exbhwadcjdzsj2e84oqtp&st=qbmqszdx&dl=0
 
 ## ** Entities: **
 
