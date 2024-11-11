@@ -45,7 +45,7 @@ public class recommendationsView {
         JFrame mainFrame = new JFrame("Daily Value Recommendations");
         mainFrame.setSize(1000,500);
         mainFrame.setContentPane(panel1);
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         mainFrame.setVisible(true);
 
     }

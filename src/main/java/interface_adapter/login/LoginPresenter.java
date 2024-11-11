@@ -31,7 +31,7 @@ public class LoginPresenter implements LoginOutputBoundary {
 
     @Override
     public void prepareFailView(String error) {
-        JFrame failedLoginFrame = new JFrame(error);
+        JDialog failedLoginFrame = new JDialog();
 
         JPanel failedLoginLabelPanel = new JPanel();
         JLabel failedLoginLabel = new JLabel(error);
@@ -52,8 +52,9 @@ public class LoginPresenter implements LoginOutputBoundary {
         failedLoginPanel.add(failedLoginLabelPanel);
         failedLoginPanel.add(failedLoginButtonPanel);
 
+        failedLoginFrame.setModal(true);
         failedLoginFrame.setContentPane(failedLoginPanel);
-        failedLoginFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        failedLoginFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         failedLoginFrame.pack();
         failedLoginFrame.setVisible(true);
 
