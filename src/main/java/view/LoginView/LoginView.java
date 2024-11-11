@@ -22,7 +22,7 @@ public class LoginView {
     }
 
     public static void main(String[] args) {    // test for the gui
-        LoginView loginView = new LoginView(new LoginViewBuilder(new JPanel()));
+        LoginView loginView = new LoginView(new LoginViewBuilder(new JPanel(), new JFrame("Log In Page")));
 
         loginView.generateLoginView();
     }

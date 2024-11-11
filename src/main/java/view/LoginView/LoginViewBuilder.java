@@ -16,13 +16,15 @@ import java.awt.event.ActionListener;
 
 public class LoginViewBuilder {
 
+    private final JFrame loginFrame;
     private final JPanel loginPanel;
     private JLabel welcomeLabel;
     private JPanel usernamePanel;
     private JPanel passwordPanel;
     private JPanel buttonPanel;
 
-    public LoginViewBuilder(JPanel loginPanel) {
+    public LoginViewBuilder(JPanel loginPanel, JFrame loginFrame) {
+        this.loginFrame = loginFrame;
         this.loginPanel = loginPanel;
         this.loginPanel.setLayout(new BoxLayout(this.loginPanel, BoxLayout.Y_AXIS));
     }
@@ -78,13 +80,15 @@ public class LoginViewBuilder {
         LoginInputBoundary loginUseCaseInteractor = new LoginInteractor(loginDataAccessObject, loginPresenter);
         LoginController loginController = new LoginController(loginUseCaseInteractor);
 
-        return createLoginButton(usernameField, passwordField, loginController);
+        return createLoginButton(usernameField, passwordField, loginController, this.loginFrame);
     }
 
     @NotNull
     private static JButton createLoginButton(JTextField usernameField,
                                              JPasswordField passwordField,
-                                             LoginController loginController) {
+                                             LoginController loginController,
+                                             JFrame loginFrame) {
+
         JButton loginButton = new JButton("Log In");
         loginButton.addActionListener(new ActionListener() {
             @Override
@@ -96,8 +100,10 @@ public class LoginViewBuilder {
                 for (char passwordChar : passwordChars) {
                     password.append(passwordChar);
                 }
-
-                loginController.execute(username, password.toString());
+                System.out.println("clicked log in");
+                loginController.execute(username, password.toString(), loginFrame);
+                System.out.println(username);
+                System.out.println(password);
             }
         });
         return loginButton;
@@ -135,9 +141,8 @@ public class LoginViewBuilder {
     }
 
     public JFrame build() {
-        JFrame loginFrame = new JFrame("Login Page.");
-        loginFrame.setContentPane(this.loginPanel);
-        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.loginFrame.setContentPane(this.loginPanel);
+        this.loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         return loginFrame;
     }

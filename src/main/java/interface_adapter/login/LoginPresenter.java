@@ -5,6 +5,9 @@ import use_case.login.LoginOutputBoundary;
 import use_case.login.LoginOutputData;
 import view.mainView;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -28,6 +31,31 @@ public class LoginPresenter implements LoginOutputBoundary {
 
     @Override
     public void prepareFailView(String error) {
+        JFrame failedLoginFrame = new JFrame(error);
+
+        JPanel failedLoginLabelPanel = new JPanel();
+        JLabel failedLoginLabel = new JLabel(error);
+        failedLoginLabelPanel.add(failedLoginLabel);
+
+        JPanel failedLoginButtonPanel = new JPanel();
+        JButton failedLoginButton = new JButton("OK");
+        failedLoginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                failedLoginFrame.dispose();
+            }
+        });
+        failedLoginButtonPanel.add(failedLoginButton);
+
+        JPanel failedLoginPanel = new JPanel();
+        failedLoginPanel.setLayout(new BoxLayout(failedLoginPanel, BoxLayout.Y_AXIS));
+        failedLoginPanel.add(failedLoginLabelPanel);
+        failedLoginPanel.add(failedLoginButtonPanel);
+
+        failedLoginFrame.setContentPane(failedLoginPanel);
+        failedLoginFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        failedLoginFrame.pack();
+        failedLoginFrame.setVisible(true);
 
     }
 }
