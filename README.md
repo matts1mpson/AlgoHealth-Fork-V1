@@ -1,35 +1,62 @@
 # AlgoHealth
-CSC207 Final Project
-Group Members:
+**CSC207 Final Project
+Group Members:**
 Matthew Simpson (Github username: matts1mpson),
 Haoming (Tony) Qi (Github username: TonyQi25), 
- Erin Chen (Github username: chenerin29),
+Erin Chen (Github username: chenerin29),
 Daniel Xie (Github username: DanielXie1795)
 
-Team User Story: Food logging
+## **Use Cases:**
 
-Josiah wishes to track the food he consumed in a day. He logs in to the nutrition tracker program and selects a day 
-to input the food he consumed that day. The program calculates the amount of macronutrients, micronutrients, and 
-calories he consumed that day. Basic shortfalls of the inputted food will be shown. For example, a calorie or 
-micronutrient deficiency. A button is next to the shortfalls display that can take him to a page with food 
-recommendations that bring his nutrient levels to what is expected. His input will be stored and available for him 
-to view next time he logs in the program.
-
-Use Cases:
-
-User logs in:
+**User logs in:**
 
     User enters username and password. The system shows the user is logged in if the username exists and the password
     matches the username. If the username does not exist or the password does not match the username, the system shows
     the log in failed.
 
-User logs food:
+**User logs food:**
 
     User enters the type and amount of food they consumed. The system shows the nutrients and calories the user
     consumed and stores the information if the entered food is valid. If the food entered is invalid, the system 
     alerts the user that no such food exists.
 
-User logs out:
+**User logs out:**
 
     User logs out and the system shows that the user successfully logged out.
 
+**Get General Recommendations:**
+
+User presses on the “get recommendation” button to trigger a window with recommendations made based on the user’s 
+previous input of food consumption.
+
+**Looking back at history**:
+
+The user selects a date to view their record of food intake on that day. If the date is in the past, the system shows
+the user’s record of food intake on that day. If the date is in the future, the system alerts the user that there is
+no record.
+
+**Recipe creation:**
+
+The user inputs a list of ingredients for their own recipe. The system calculates the total macronutrients if the food
+inputted are valid. If the food entered is invalid, the system alerts the user that no such food exists.
+
+**Edit food log:**
+
+The user selects a date to revise the recorded daily consumption. The system records the new food intake the user 
+inputs if the food is valid. If the food is not valid, the system alerts the user.
+
+## ** Links for Sketches and Video: **
+Link to view sketches:https://www.dropbox.com/scl/fi/yfsiq2puil3mbfrjzsddm/AlgoHealth-App-View-Sketches.pdf?rlkey=bt4sihznpxc7ekzqoys62ng9f&st=d0rvugd5&dl=0
+Link to Week 1 Demo Video: https://www.dropbox.com/scl/fi/tcqap2a9rjsby9owifh2d/AlgoHealth-Project-Week-1-Demo.mov?rlkey=t8upq65jph8litm7kcjk72jxs&st=mauwud3b&dl=0
+
+## ** Entities: **
+
+Entities Food, DayInfo, and AccountInfo will be used in our project. Code for them has been written
+and can be found in our repo in package "data". If we end up integrating recipe related features, we
+will write and use a Recipe entity.
+
+## ** Calling API: **
+
+In package "api", a method in class callUsdaApi calls the USDA FoodData Central API and searches the database by
+keyword. It returns the first result of the search. A method in populateFromUsda successfully creates a food entity
+from this data under certain conditions relating to uniformity of data retrieved from the API. 
