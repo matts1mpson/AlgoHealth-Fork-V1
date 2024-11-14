@@ -1,55 +1,37 @@
 package view;
 
 
-import api.callUsdaApi;
-import data.DayInfo;
-import data.Food;
-import interface_adapter.get_recommendations.getRecsController;
+import interface_adapter.daily_value_recs.DailyValueRecsController;
+import interface_adapter.daily_value_recs.MainViewModel;
+import interface_adapter.daily_value_recs.MainViewState;
 
 import javax.swing.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.chrono.ChronoLocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
-import static api.populateFromUsda.foodFromFirstResultUsda;
-import static java.awt.Component.LEFT_ALIGNMENT;
+public class mainView extends JPanel implements ActionListener, PropertyChangeListener {
 
-public class mainView {
+    private final String viewName = "main view";
+    private final MainViewModel mainViewModel;
 
-    // for all instance attributes the item at 0 is the amount as a string, and the item at 1 is the unit.
-    private ArrayList<Object> calories;
-    private ArrayList<Object> protein;
-    private ArrayList<Object> carbs;
-    private ArrayList<Object> fat;
-    private Food food;
+    private JLabel dailyValueCaloriesText = new JLabel();
+    private JLabel dailyValueProteinText = new JLabel();
+    private JLabel dailyValueCarbsText = new JLabel();
+    private JLabel dailyValueFatText = new JLabel();
 
-    public mainView(){
-        calories = new ArrayList<>();
-        calories.add("0");
-        calories.add("Kcal");
+    private JLabel totalCalories = new JLabel("Total calories: 0Kcal");
+    private JLabel totalProtein = new JLabel("Total protein: 0g");
+    private JLabel totalCarbs = new JLabel("Total carbohydrates: 0g");
+    private JLabel totalFat = new JLabel("Total fat: 0g");
 
-        protein = new ArrayList<>();
-        protein.add("0");
-        protein.add("g");
+    private DailyValueRecsController dailyValueRecsController;
 
-        carbs = new ArrayList<>();
-        carbs.add("0");
-        carbs.add("g");
+    public mainView(MainViewModel mainViewModel) {
 
-        fat = new ArrayList<>();
-        fat.add("0");
-        fat.add("g");
-
-
-    }
-
-    public void genMvGUI(DayInfo day) {
+        this.mainViewModel = mainViewModel;
+        this.mainViewModel.addPropertyChangeListener(this);
 
         // Input fields and labels part.
         JLabel enterFood = new JLabel("Enter food:");
@@ -61,20 +43,41 @@ public class mainView {
         JButton submitButton = new JButton("Submit");
 
         // Macronutrient and calories values display.
-        JLabel totalCalories = new JLabel("Total calories: " + calories.get(0) + calories.get(1));
-        JLabel totalProtein = new JLabel("Total protein: " + protein.get(0) + protein.get(1));
-        JLabel totalCarbs = new JLabel("Total carbohydrates: " + carbs.get(0) + protein.get(1));
-        JLabel totalFat = new JLabel("Total fat: " + fat.get(0) + fat.get(1));
+        JPanel jp1 = new JPanel();
+        jp1.add(totalCalories);
+        jp1.add(dailyValueCaloriesText);
+
+        JPanel jp2 = new JPanel();
+        jp2.add(totalProtein);
+        jp2.add(dailyValueProteinText);
+
+        JPanel jp3 = new JPanel();
+        jp3.add(totalCarbs);
+        jp3.add(dailyValueCarbsText);
+
+        JPanel jp4 = new JPanel();
+        jp4.add(totalFat);
+        jp4.add(dailyValueFatText);
+
         JButton getDVrecs = new JButton("Daily Value Assessment");
 
         getDVrecs.addActionListener(
                 new ActionListener() {
                     @Override
-                    public void actionPerformed(ActionEvent e) {
-                        getRecsController.execute(calories, protein, carbs, fat);
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(getDVrecs)) {
+                            final MainViewState currentState = mainViewModel.getState();
+
+                            dailyValueRecsController.execute(
+                                    currentState.getCalories(),
+                                    currentState.getProtein(),
+                                    currentState.getCarbs(),
+                                    currentState.getFat()
+                            );
+
+                        }
                     }
-                }
-        );
+                });
 
         // Input and submit panel.
         JPanel panel1 = new JPanel();
@@ -90,21 +93,16 @@ public class mainView {
         // Macros panel.
         JPanel panel2 = new JPanel();
         panel2.setLayout(new BoxLayout(panel2, BoxLayout.Y_AXIS));
-        panel2.add(totalCalories);
-        panel2.add(totalProtein);
-        panel2.add(totalCarbs);
-        panel2.add(totalFat);
+        panel2.add(jp1);
+        panel2.add(jp2);
+        panel2.add(jp3);
+        panel2.add(jp4);
         panel2.add(getDVrecs);
 
         //Food history panel.
         JPanel fhPanel = new JPanel();
         fhPanel.setLayout(new BoxLayout(fhPanel, BoxLayout.Y_AXIS));
-        // loop through foods in Day.foodLog() and generate an entry.
         fhPanel.add(new JLabel("Day's Food History"));
-        for (Food food: day.getFoodLog()) {
-            JLabel food1 = new JLabel(food.getDescription() + " " + food.getWeight() + food.getStandardUnit());
-            fhPanel.add(food1);
-        }
 
         // Panel with history and macros side by side.
         JPanel sbsPanel = new JPanel();
@@ -117,51 +115,35 @@ public class mainView {
         mainPanel.add(panel1);
         mainPanel.add(sbsPanel);
 
-
-        JFrame mainFrame = new JFrame("AlgoHealth");
-        mainFrame.setSize(1000,500);
-        mainFrame.setContentPane(mainPanel);
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setVisible(true);
-
-
+        this.add(mainPanel);
 
     }
 
-    public void setCalories(ArrayList<Object> calories) {
-        this.calories = calories;
+
+    public String getViewName() {
+        return viewName;
     }
 
-    public void setCarbs(ArrayList<Object> carbs) {
-        this.carbs = carbs;
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 
-    public void setFat(ArrayList<Object> fat) {
-        this.fat = fat;
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        final MainViewState state = (MainViewState) evt.getNewValue();
+        dailyValueCaloriesText.setText("is " + String.valueOf(state.getCalories()) +
+                "% of the recommended Daily Value.");
+        dailyValueProteinText.setText("is " + String.valueOf(state.getProtein()) +
+                "% of the recommended Daily Value.");
+        dailyValueCarbsText.setText("is " + String.valueOf(state.getCarbs()) +
+                "% of the recommended Daily Value.");
+        dailyValueFatText.setText("is " + String.valueOf(state.getFat()) +
+                "% of the recommended Daily Value.");
     }
 
-    public void setProtein(ArrayList<Object> protein) {
-        this.protein = protein;
+    public void setDailyValueRecsController(DailyValueRecsController dailyValueRecsController) {
+        this.dailyValueRecsController = dailyValueRecsController;
     }
-
-    public static void main(String[] args) {
-        // Informal test for the view.
-        mainView mV = new mainView();
-        DayInfo mockDay = new DayInfo(LocalDate.now());
-        ArrayList<Food> foodList = new ArrayList<>();
-        String apiKey = "DEMO_KEY";
-        callUsdaApi usdaObj = new callUsdaApi(apiKey);
-        Food result = foodFromFirstResultUsda("whole milk", usdaObj);
-        foodList.add(result);
-        foodList.add(result);
-        foodList.add(result);
-        foodList.add(result);
-        foodList.add(result);
-        mockDay.setFoodLog(foodList);
-        mV.genMvGUI(mockDay);
-        int i = 1;
-    }
-
 }
-
 // Citation: lab-5 code https://github.com/CSC207-2024F-UofT/lab-5
