@@ -1,4 +1,4 @@
-package view.LoginView;
+/*package view.LoginView;
 
 import data_access.TempDAOInMemory;
 import interface_adapter.login.LoginController;
@@ -192,4 +192,4 @@ public class LoginViewBuilder {   // maybe more of the methods should have gette
 
         return loginFrame;
     }
-}
+}*/

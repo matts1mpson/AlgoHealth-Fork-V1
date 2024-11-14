@@ -1,4 +1,4 @@
-package interface_adapter.food_logging;
+/*package interface_adapter.food_logging;
 import view.mainView;
 import data.Food;
 import use_case.food_logging.LogFoodOutputData;
@@ -19,4 +19,4 @@ public class LogFoodPresenter implements LogFoodOutputBoundary {
         foodLogView.setProtein(foodOutputData.getProtein());
         foodLogView.setCarbs(foodOutputData.getCarbs());
     }
-}
+}*/

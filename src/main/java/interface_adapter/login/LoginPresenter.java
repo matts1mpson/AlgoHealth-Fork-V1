@@ -1,4 +1,4 @@
-package interface_adapter.login;
+/*package interface_adapter.login;
 
 import data.DayInfo;
 import use_case.login.LoginOutputBoundary;
@@ -11,9 +11,9 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
+*//**
  * The Presenter for the Login Use Case.
- */
+ *//*
 public class LoginPresenter implements LoginOutputBoundary {
 
     private final mainView homePage;
@@ -59,4 +59,4 @@ public class LoginPresenter implements LoginOutputBoundary {
         failedLoginFrame.setVisible(true);
 
     }
-}
+}*/
