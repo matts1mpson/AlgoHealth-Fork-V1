@@ -1,4 +1,4 @@
-package view.SignupView;
+/*package view.SignupView;
 
 import javax.swing.*;
 
@@ -33,4 +33,4 @@ public class SignupView {
         signupView.generateSignupView();
     }
 
-}
+}*/

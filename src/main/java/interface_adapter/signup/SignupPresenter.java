@@ -1,4 +1,4 @@
-package interface_adapter.signup;
+/*package interface_adapter.signup;
 
 import data.DayInfo;
 import java.util.List;
@@ -23,4 +23,4 @@ public class SignupPresenter implements SignupOutputBoundary {
     public void prepareFailView(String error) {
 
     }
-}
+}*/
