@@ -33,7 +33,7 @@ public class TempDAOInMemory implements LoginDataAccessInterface, LogoutDataAcce
 
     public AccountInfo get(String username) {
         return new AccountInfo(LocalDate.now(), 0, 0,
-                "", "", "", "", new ArrayList<>());
+                new String[]{""}, "", "", "", new ArrayList<>());
     }
 
     public void put(String username, AccountInfo accountInfo) {
